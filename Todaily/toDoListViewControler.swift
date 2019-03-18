@@ -1,20 +1,16 @@
-//
-//  ViewController.swift
-//  Todaily
-//
-//  Created by Aws Shkara on 3/18/19.
-//  Copyright © 2019 Aws Shkara. All rights reserved.
-//
-
 import UIKit
 
 class TodoListViewController: UITableViewController {
     
     var itemArray = ["find job", "get passport", "travel"]
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
+            itemArray = items
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,6 +47,7 @@ class TodoListViewController: UITableViewController {
             (action) in
             //what will happen when the user clicks Add Item button on our UIAlert
             self.itemArray.append(textField.text!)
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             self.tableView.reloadData()
         }
         alert.addTextField {
