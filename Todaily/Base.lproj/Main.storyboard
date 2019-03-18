@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="O9H-dT-0ma" id="6nr-8c-xj7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todaily" id="mro-41-4DL"/>
+                    <navigationItem key="navigationItem" title="Todaily" id="mro-41-4DL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="v6p-2h-cfX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="O9H-dT-0ma" id="hah-69-Kch"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1X-Qs-mdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +53,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ff4-ob-KfJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.52530675859999998" green="0.95686274510000002" blue="0.70983185159999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.45153397304768639" green="0.82675150849883838" blue="0.96620899438858032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.34514332755736055" green="0.25997678169259997" blue="0.16114029852675188" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
