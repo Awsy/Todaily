@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		B9D5D5CC22439FAA009F3142 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D5D5CB22439FAA009F3142 /* CategoryViewController.swift */; };
 		B9D5D5D02243D9A6009F3142 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D5D5CF2243D9A6009F3142 /* Item.swift */; };
 		B9D5D5D22243D9C4009F3142 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D5D5D12243D9C4009F3142 /* Category.swift */; };
+		B9D5D5D42248CDA4009F3142 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D5D5D32248CDA4009F3142 /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B9D5D5CB22439FAA009F3142 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		B9D5D5CF2243D9A6009F3142 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B9D5D5D12243D9C4009F3142 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B9D5D5D32248CDA4009F3142 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		E8284FE2B599FADF63CD6E61 /* Pods_Todaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B9D5D5CB22439FAA009F3142 /* CategoryViewController.swift */,
+				B9D5D5D32248CDA4009F3142 /* SwipeTableViewController.swift */,
 				B9D5D591223FBBE8009F3142 /* toDoListViewControler.swift */,
 			);
 			path = Controllers;
@@ -167,7 +170,7 @@
 				};
 			};
 			buildConfigurationList = B9D5D587223FBBE8009F3142 /* Build configuration list for PBXProject "Todaily" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -207,6 +210,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Todaily/Pods-Todaily-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
@@ -215,6 +219,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
@@ -257,6 +262,7 @@
 				B9D5D5CC22439FAA009F3142 /* CategoryViewController.swift in Sources */,
 				B9D5D592223FBBE8009F3142 /* toDoListViewControler.swift in Sources */,
 				B9D5D590223FBBE8009F3142 /* AppDelegate.swift in Sources */,
+				B9D5D5D42248CDA4009F3142 /* SwipeTableViewController.swift in Sources */,
 				B9D5D5D22243D9C4009F3142 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
