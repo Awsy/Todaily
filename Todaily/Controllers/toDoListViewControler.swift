@@ -6,6 +6,7 @@ class TodoListViewController: SwipeTableViewController {
     
     var todoItems: Results<Item>?
     let realm = try! Realm()
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var selectedCategory : Category? {
         didSet {
@@ -21,14 +22,40 @@ class TodoListViewController: SwipeTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let colorHex = selectedCategory?.color {
-            
-            guard let navBar = navigationController?.navigationBar else {
-                fatalError("Navigation Controller does not exist")
-            }
-            
-            navBar.barTintColor = UIColor(hexString: colorHex)
+        
+        title = selectedCategory?.name
+
+        guard let colorHex = selectedCategory?.color  else { fatalError("Error occurred") }
+        
+        updateNavBar(withHexCode: colorHex)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        guard let originalColor = UIColor(hexString: "1D9BF6") else {fatalError()}
+        
+        updateNavBar(withHexCode: "1D9BF6")
+    }
+    
+    //MARK:- Nav bar setup methods
+    
+    func updateNavBar(withHexCode colorHexCode: String) {
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("Navigation Controller does not exist")
         }
+        
+        guard let navBarColor = UIColor(hexString: colorHexCode) else { fatalError("nav bar error occurred") }
+        
+        navBar.barTintColor = navBarColor
+        
+        navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+        
+        if #available(iOS 11.0, *) {
+            navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        searchBar.barTintColor = navBarColor
     }
     
     // MARK - Tableview Datasource Methods
@@ -131,7 +158,7 @@ class TodoListViewController: SwipeTableViewController {
     
     func loadItems() {
         
-        todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
+        todoItems = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: false)
 
         tableView.reloadData()
     }
@@ -152,12 +179,13 @@ class TodoListViewController: SwipeTableViewController {
 }
 
 //MARK: Seacrh Bar Methods
+// Here we can set the listing order of the items by changing the keyPath and ascending orders
 
 extension TodoListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCr eated", ascending: true)
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
         
         tableView.reloadData()
     }
